@@ -1,0 +1,7 @@
+<vxml version="2.1">
+<form>
+<block>
+<submit next="http://danicafe-saifdaniel.rhcloud.com/generate_index_vxml.php"/>
+</block>
+</form>
+</vxml>

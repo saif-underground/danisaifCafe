@@ -1,0 +1,10 @@
+Caffe Mocha				CafeMocha
+Cappuccino				Cappuccino
+Caffee Latte			CaffeLatte
+Espresso Frappuccino	EspressoFrappuccino
+Freshly Brewed Coffee	FreshlyBrewedCoffee
+
+sizes
+Grande			Grande
+Tall			Tall
+Venti			Venti

@@ -1,0 +1,15 @@
+1. Welcome to dani cafe 		D
+2. What is your user id			D
+3. Sorry I did not hear.
+4. Sorry I did not understand.
+5. your user id is
+6. is this correct?				D
+7. What type of coffee do you want?		D
+7. Sorry, I did not hear anything. 
+8. Sorry, I did not understand. 
+10. Please say 
+11. or
+11. What size would you like?		D
+12. You ordered a					D
+13. Your order comes out a total of	D
+14. Your order has been place. It will be ready in 5 minutes.

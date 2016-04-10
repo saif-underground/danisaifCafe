@@ -1,0 +1,30 @@
+0096 - Welcome
+0040 - User ID
+0042 - No Match User ID
+0043 - No Input User ID
+0046 - Your User ID is
+0047 - Is this correct?
+0048 - What type of coffee would you like to order?
+0051 - What size would you like?
+0053 - Tall
+0056 - Grande
+0057 - Venti
+0060 - You ordered a ...
+0064 - Your order comes out to a total of ... ($$$)
+0065 - Is your order correct?
+0067 - No Match Size
+0072 - No Input Size
+0077 - Caffe Latte
+0079 - Cappuccino
+0081 - Cafe Mocha
+0083 - Caramel Macchiato
+0084 - Caffe Americano
+0086 - Freshly Brewed Coffee
+0088 - Classic Hot Chocolate
+0089 - Caramel Frappuccino
+0090 - Coffee Frappuccino
+0091 - Mocha Frappuccino
+0095 - Espresso Frappuccino
+
+
+

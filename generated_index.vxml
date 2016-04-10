@@ -1,0 +1,228 @@
+<?xml version="1.0" ?>
+<!DOCTYPE vxml PUBLIC "-//BeVocal Inc//VoiceXML 2.0//EN" 
+   "http://cafe.bevocal.com/libraries/dtd/vxml2-0-bevocal.dtd">
+   
+<vxml version="2.0" xmlns="http://www.w3.org/2001/vxml" xml:lang="en-US">
+ <!-- <meta name="saif" content="saifulabu25@gmail.com"/> -->
+
+ 
+  
+ 
+ <form>
+    <script>
+	   <![CDATA[
+		var coffee_type_id, coffee_size_id, price_id, price_value;
+		var coffeeTypeAudio, coffeeSizeAudio, baseURL;
+	   ]]>
+	</script>
+    <property name="bevocal.voice.name" value="mark"/>
+    <block>
+       <prompt>
+			<audio
+				src="audio/welcome.wav">
+				Hi, welcome to daniel cafe
+			</audio>
+		</prompt>
+    </block>
+    
+        
+   <field name="user_id" type="digits">
+		
+			<audio src="audio/whatIsPin.wav" />		
+		<nomatch>				
+				<audio src="audio/noMatchPin.wav" />								
+		</nomatch>
+		<noinput>
+			<audio src="audio/noMatchPin.wav" maxage="0" maxstale="0" />
+		</noinput>
+	</field>
+
+    <field name="user_id_conf" type="boolean">
+		<prompt>		
+			<audio src="audio/PinIs.wav" maxage="0" maxstale="0">
+				Your User Id is.
+			</audio>
+			<value expr="user_id"/>
+			
+			<audio src="audio/IsThisCorrect.wav" maxage="0" maxstale="0">
+				Is this correct?
+			</audio>
+			
+		</prompt>
+		
+		<nomatch>
+			<audio src="audio/PinIs.wav" maxage="0" maxstale="0" />
+		</nomatch>
+		
+		<noinput>
+			<audio src="audio/PinIs.wav" maxage="0" maxstale="0" />
+		</noinput>
+		
+        <filled>
+            <if cond="user_id_conf==false">
+			    <clear namelist="user_id user_id_conf" />
+                <goto nextitem="user_id" />
+            </if>
+        </filled>
+	</field>
+	
+	<field name="coffeetype">
+		<prompt>
+			<audio src="audio/CoffeeTypeWant.wav" maxage="0" maxstale="0">
+				What type of coffee would you like?
+			</audio>
+		</prompt>
+		<nomatch>
+			<audio src="audio/NoMatchCoffee.wav"/>
+		</nomatch>
+		
+		<noinput>
+			<audio src="audio/NoMatchCoffee.wav"/>
+		</noinput>
+		<grammar xml:lang="en-us" version="1.0" root="COFFEETYPE" mode="voice">
+			<rule id="COFFEETYPE" scope="public">
+				<one-of>
+					<item>caffe mocha</item>
+<item>espresso frappuccino</item>
+<item>cappuccino</item>
+<item>caffee latte</item>
+<item>freshly brewed coffee</item>
+					
+				</one-of>
+			</rule>
+		</grammar>
+		<filled>
+			<script>
+				<![CDATA[
+					//var coffee_type_id, coffee_size_id, price_id, price_value;
+					if(coffeetype == 'caffe mocha'){
+coffee_type_id = 1;
+}else if(coffeetype == 'espresso frappuccino'){
+coffee_type_id = 2;
+}else if(coffeetype == 'cappuccino'){
+coffee_type_id = 3;
+}else if(coffeetype == 'caffee latte'){
+coffee_type_id = 4;
+}else if(coffeetype == 'freshly brewed coffee'){
+coffee_type_id = 5;
+}				]]>
+			</script>
+		</filled>
+	</field>
+ 
+	<field name="coffeesize">
+		<audio src="audio/WhatSizeWouldYouLike.wav">
+		
+			What will be the size?
+		</audio>
+		
+		<nomatch>
+			<audio src="audio/NoInputSize.wav" />
+		</nomatch>
+			
+		<noinput>
+			<audio src="audio/NoInputSize.wav" />
+		</noinput>
+		
+		<grammar xml:lang="en-us" version="1.0" root="COFFEESIZE" mode="voice">
+			<rule id="COFFEESIZE" scope="public">
+				<one-of>
+					<item>tall</item>
+<item>grande</item>
+<item>venti</item>
+				</one-of>
+			</rule>
+		</grammar>
+		<filled>
+			<script>
+				<![CDATA[
+					
+					if(coffeesize == 'tall'){
+coffee_size_id = 1;
+}else if(coffeesize == 'grande'){
+coffee_size_id = 2;
+}else if(coffeesize == 'venti'){
+coffee_size_id = 3;
+}
+ if(coffee_type_id == 1 && coffee_size_id == 1){
+price_id = 5;
+ price_value = 11;
+}else if(coffee_type_id == 1 && coffee_size_id == 2){
+price_id = 6;
+ price_value = 12;
+}else if(coffee_type_id == 1 && coffee_size_id == 3){
+price_id = 7;
+ price_value = 13;
+}else if(coffee_type_id == 2 && coffee_size_id == 1){
+price_id = 8;
+ price_value = 21;
+}else if(coffee_type_id == 2 && coffee_size_id == 2){
+price_id = 9;
+ price_value = 22;
+}else if(coffee_type_id == 2 && coffee_size_id == 3){
+price_id = 10;
+ price_value = 23;
+}else if(coffee_type_id == 3 && coffee_size_id == 1){
+price_id = 11;
+ price_value = 31;
+}else if(coffee_type_id == 3 && coffee_size_id == 2){
+price_id = 12;
+ price_value = 32;
+}else if(coffee_type_id == 3 && coffee_size_id == 3){
+price_id = 13;
+ price_value = 33;
+}else if(coffee_type_id == 4 && coffee_size_id == 1){
+price_id = 14;
+ price_value = 41;
+}else if(coffee_type_id == 4 && coffee_size_id == 2){
+price_id = 15;
+ price_value = 42;
+}else if(coffee_type_id == 4 && coffee_size_id == 3){
+price_id = 16;
+ price_value = 43;
+}else if(coffee_type_id == 5 && coffee_size_id == 1){
+price_id = 17;
+ price_value = 51;
+}else if(coffee_type_id == 5 && coffee_size_id == 2){
+price_id = 18;
+ price_value = 52;
+}else if(coffee_type_id == 5 && coffee_size_id == 3){
+price_id = 19;
+ price_value = 53;
+}					
+				]]>
+			</script>			
+		</filled>
+	</field>
+	
+	<field name="order_confirmation" type="boolean">
+	
+		
+		<prompt>
+			<audio src="audio/YouOrdereda.wav"/> 
+			<audio expr="'audiocofftypesize/'+ coffeesize.replace(/\s+/g, '') + '.wav'" /> 
+			<audio expr="'audiocofftypesize/'+ coffeetype.replace(/\s+/g, '') + '.wav'" /> 
+			<audio src="audio/TotalPrice.wav"/>
+			<value expr="price_value" />. 
+			<audio src="audio/Dollars.wav"/>
+			<audio src="audio/IsThisCorrect.wav"/>
+		</prompt>	
+		<nomatch>
+			<reprompt />
+		</nomatch>
+		<noinput>
+			<reprompt />
+		</noinput>
+		<filled>
+            <if cond="order_confirmation==false">
+			    <clear namelist="coffeetype coffeesize order_confirmation" />
+                <goto nextitem="coffeetype" />
+            </if>
+        </filled>
+	</field>
+ 
+	<filled>
+		<submit next="http://danicafe-saifdaniel.rhcloud.com/placeorder.php" method="get" namelist="user_id price_id" fetchtimeout="20s"/>
+	</filled>
+</form>
+</vxml>
